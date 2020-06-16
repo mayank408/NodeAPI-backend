@@ -2,9 +2,20 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 
 const productRoutes = require('./api/routes/product');
 const orderRoutes = require('./api/routes/orders');
+
+const uri = "mongodb+srv://admin:<pass>@node-rest-bic1t.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  console.log("MongoDB Connected…")
+})
+.catch(err => console.log(err))
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -47,3 +58,4 @@ app.use((error, req, res, next)=>{
 });
 
 module.exports = app;
+
