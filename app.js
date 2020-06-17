@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const productRoutes = require('./api/routes/product');
 const orderRoutes = require('./api/routes/orders');
 
-const uri = "mongodb+srv://admin:<pass>@node-rest-bic1t.mongodb.net/test?retryWrites=true&w=majority"
+const uri = "mongodb+srv://admin:@node-rest-bic1t.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
